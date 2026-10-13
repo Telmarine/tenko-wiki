@@ -117,7 +117,7 @@ footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border
 <div class="wrap">
   <div class="eyebrow">Tenko MC &middot; TMC Modpack 1.1</div>
   <h1>Mod Wiki</h1>
-  <p class="lede">What every mod in the pack does, in plain terms, plus how the server's own systems work. 91 mods across 11 categories, plus Tenko's own mods. Search below or jump to a category.</p>
+  <p class="lede">What every mod in the pack does, in plain terms, plus how the server's own systems work. 90 mods across 11 categories, plus Tenko's own mods. Search below or jump to a category.</p>
   <p class="lede" style="margin-top:6px;">Setting up your game? Start with the <a href="install.html" style="font-weight:600;">Install Guide</a>.</p>
   <div class="facts">
     <span class="fact">Server: <b>play.tenkominecraft.com</b></span>
@@ -130,7 +130,7 @@ footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border
     <input id="search" type="text" placeholder="Search mods by name, category or what they do" autocomplete="off" aria-label="Search mods">
     <div class="nav-pills">
       <a class="nav-pill" style="--cat: var(--c-server)" href="#server">How Tenko works</a>
-      <a class="nav-pill" style="--cat: var(--accent)" href="#tenko-mods">Tenko's Own Mods (5)</a>
+      <a class="nav-pill" style="--cat: var(--accent)" href="#tenko-mods">Tenko's Own Mods (6)</a>
       <a class="nav-pill" style="--cat: var(--c-server)" href="#economy">Economy &amp; NPCs (4)</a>
       <a class="nav-pill" style="--cat: var(--c-mobs)" href="#mobs">Mobs &amp; Animals (2)</a>
       <a class="nav-pill" style="--cat: var(--c-build)" href="#build">Building &amp; Decoration (19)</a>
@@ -138,7 +138,7 @@ footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border
       <a class="nav-pill" style="--cat: var(--c-storage)" href="#storage">Storage &amp; Organization (3)</a>
       <a class="nav-pill" style="--cat: var(--c-food)" href="#food">Food &amp; Cooking (6)</a>
       <a class="nav-pill" style="--cat: var(--c-fun)" href="#fun">Cosmetics &amp; Fun (4)</a>
-      <a class="nav-pill" style="--cat: var(--c-qol)" href="#qol">Quality of Life &amp; Info (7)</a>
+      <a class="nav-pill" style="--cat: var(--c-qol)" href="#qol">Quality of Life &amp; Info (6)</a>
       <a class="nav-pill" style="--cat: var(--c-world)" href="#world">World &amp; Exploration (7)</a>
       <a class="nav-pill" style="--cat: var(--c-perf)" href="#perf">Performance (3)</a>
       <a class="nav-pill" style="--cat: var(--c-lib)" href="#lib">Library / Dependency (26)</a>
@@ -188,8 +188,9 @@ footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border
         <p>Rufus at spawn hands out rewards for time played. Time spent AFK doesn't count.</p>
       </div>
       <div class="feature">
-        <h3>Claims &amp; parties</h3>
-        <p>Claim chunks to protect your builds. To share a claim, make a party and invite friends with <code>/openpac-parties</code> or the claims menu.</p>
+        <h3>Claims</h3>
+        <p>Hold a Claim Deed and right-click to claim the chunk you're standing in. Sneak + right-click unclaims it. Lost your Deed? <code>/claim deed</code> gives you a new one.</p>
+        <p>Share your land with <code>/trust &lt;player&gt;</code>. Type <code>/claim</code> inside your claim to set ranks, flags and sub-areas.</p>
       </div>
       <div class="feature">
         <h3>PvP</h3>
@@ -207,12 +208,13 @@ footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border
   </section>
 
   <section class="category" id="tenko-mods" style="--cat: var(--accent)">
-    <div class="category-head"><span class="cat-dot"></span><h2>Tenko's Own Mods</h2><span class="category-count">5 mods</span></div>
+    <div class="category-head"><span class="cat-dot"></span><h2>Tenko's Own Mods</h2><span class="category-count">6 mods</span></div>
     <p class="category-desc">Built for Tenko by TAC5 Studios. Mods marked server run on the server only, so there's nothing extra to install.</p>
     <div class="mod-grid">
       <div class="mod-card"><h3>Title Scrolls</h3><p>Scrolls found in loot unlock chat titles you can show next to your name. Choose yours with <code>/title</code>.</p></div>
       <div class="mod-card"><h3>Elements: Nexus <span class="tag">server</span></h3><p>Runs ranks, chat, the tab list and the side panel, plus homes, kits, <code>/pvp</code>, <code>/phantoms</code>, <code>/vote</code> and the Discord chat link. Show off an item in chat with <code>[item]</code> or by shift + right-clicking it in your inventory.</p></div>
       <div class="mod-card"><h3>Elements: Economy <span class="tag">server</span></h3><p>Adds the auction house (<code>/ah</code>) and chest shops (look at a chest and type <code>/shop create buy</code> or <code>/shop create sell</code>), all paid in Tenko coins. See your trade history with <code>/payments</code>.</p></div>
+      <div class="mod-card"><h3>Elements: Claims <span class="tag">server</span></h3><p>Claim land with a Claim Deed and trust friends into ranks you set up yourself. <code>/claim</code> opens the Land Config menu for ranks, flags and sub-areas. Hold the Deed to see claim outlines.</p></div>
       <div class="mod-card"><h3>Elements: Vault <span class="tag">server</span></h3><p>Lets shop and coin mods share one economy. Comes bundled with Elements: Economy.</p></div>
       <div class="mod-card"><h3>Elements: Armor Stands <span class="tag">server</span></h3><p>Hold flint and right-click to open the editor: pose, move and rotate stands, show arms, change size, swap their gear, or pick one of 40 ready-made poses. Works on stands you placed.</p></div>
     </div>
@@ -315,14 +317,13 @@ footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border
   </section>
 
   <section class="category" id="qol" style="--cat: var(--c-qol)">
-    <div class="category-head"><span class="cat-dot"></span><h2>Quality of Life &amp; Info</h2><span class="category-count">7 mods</span></div>
+    <div class="category-head"><span class="cat-dot"></span><h2>Quality of Life &amp; Info</h2><span class="category-count">6 mods</span></div>
     <p class="category-desc">Mods that show you information or smooth out annoying vanilla friction.</p>
     <div class="mod-grid">
       <div class="mod-card"><h3><a href="https://modrinth.com/mod/gravestone-mod" target="_blank" rel="noopener">Gravestone Mod</a></h3><p>When you die, your items go into a gravestone at that spot so you can get them back.</p></div>
       <div class="mod-card"><h3><a href="https://modrinth.com/mod/jade" target="_blank" rel="noopener">Jade</a></h3><p>Shows an info tooltip about whatever block, item, or mob you're looking at.</p></div>
       <div class="mod-card"><h3><a href="https://modrinth.com/mod/jade-addons-forge" target="_blank" rel="noopener">Jade Addons</a></h3><p>Adds extra Jade tooltip info for many other mods, like container contents at a glance.</p></div>
       <div class="mod-card"><h3><a href="https://modrinth.com/mod/jei" target="_blank" rel="noopener">JEI</a></h3><p>Lets you search all items and see how to craft them right from your inventory screen.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/open-parties-and-claims" target="_blank" rel="noopener">Open Parties and Claims</a></h3><p>Lets players claim chunks to protect their builds and form parties with friends.</p></div>
       <div class="mod-card"><h3><a href="https://modrinth.com/mod/xaeros-minimap" target="_blank" rel="noopener">Xaero's Minimap</a></h3><p>Adds an on-screen map of nearby terrain, players, and mobs, plus custom waypoints.</p></div>
       <div class="mod-card"><h3><a href="https://modrinth.com/mod/xaeros-world-map" target="_blank" rel="noopener">Xaero's World Map</a></h3><p>Adds a full-screen map of everywhere you've explored, working alongside the minimap.</p></div>
     </div>
