@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Travel & Worlds · Tenko MC Wiki</title>
+<meta name="description" content="Tenko has no teleport commands. Getting around is done with Waystones and homes, which keeps the world feeling big and makes builds along the way worth som">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="wiki.css">
+</head>
+<body>
+<button class="menu-btn" type="button" aria-controls="sidebar" aria-expanded="false">☰ Contents</button>
+<div class="scrim"></div>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="guide.html"><span class="eyebrow">Tenko MC</span><br><span class="name">Server Wiki</span></a>
+  <input id="wiki-search" type="search" placeholder="Search the wiki" autocomplete="off" aria-label="Search the wiki">
+  <ul class="search-results" id="search-results" hidden></ul>
+  <nav id="side-nav" aria-label="Wiki pages"><div class="nav-group"><p class="nav-group-title">Start here</p><ul><li><a class="nav-link" href="guide.html">Overview</a></li><li><a class="nav-link" href="rules.html">Rules</a></li><li><a class="nav-link" href="faq.html">FAQ</a></li></ul></div><div class="nav-group"><p class="nav-group-title">Systems</p><ul><li><a class="nav-link" href="coins.html">Coins & Shops</a></li><li><a class="nav-link" href="crates.html">Crates & Keys</a></li><li><a class="nav-link" href="rewards.html">Playtime & Voting</a></li><li><a class="nav-link" href="ranks.html">Ranks & Limits</a></li><li><a class="nav-link" href="claims.html">Claims</a></li><li><a class="nav-link" href="worlds.html" aria-current="page">Travel & Worlds</a><ul class="toc"><li><a href="#worlds">The worlds</a></li><li><a href="#leaving-spawn">Leaving spawn</a></li><li><a href="#waystones">Waystones</a></li><li><a href="#homes">Homes</a></li><li><a href="#resource-worlds">Resource worlds</a></li><li><a href="#bosses">Bosses</a></li><li><a href="#death">Dying</a></li></ul></li><li><a class="nav-link" href="npcs.html">NPCs</a></li></ul></div><div class="nav-group"><p class="nav-group-title">Reference</p><ul><li><a class="nav-link" href="commands.html">Commands</a></li><li><a class="nav-link" href="index.html">Mod Wiki</a></li><li><a class="nav-link" href="install.html">Install Guide</a></li></ul></div></nav>
+  <div class="side-facts"><b>play.tenkominecraft.com</b><br>1.21.1 · NeoForge 21.1.255<br><a href="https://discord.gg/GGQyUzt2Rq" target="_blank" rel="noopener">Discord</a></div>
+</aside>
+<main>
+<article class="content">
+  <div class="crumbs"><a href="guide.html">Guide</a> / Systems</div>
+  <h1>Travel & Worlds</h1>
+  <p class="lede">Tenko has no teleport commands. Getting around is done with Waystones and homes, which keeps the world feeling big and makes builds along the way worth something.</p>
+  
+<h2 id="worlds">The worlds<a class="anchor" href="#worlds" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th>World</th><th>Size</th><th>What it's for</th></tr></thead><tbody><tr><td>Spawn</td><td>Pocket world</td><td>Shops, NPCs, crates, WarpGates. Can't be claimed or built on.</td></tr><tr><td>Overworld</td><td>25,000 × 25,000</td><td>The main world. Build, claim, settle.</td></tr><tr><td>Nether</td><td>Border at 3,125</td><td>The main Nether. Claims work here.</td></tr><tr><td>The End</td><td>Border at 10,000</td><td>The main End and the Ender Dragon. Claims work here.</td></tr><tr><td>Resource Overworld</td><td>Separate world</td><td>Vanilla terrain for mining and gathering.</td></tr><tr><td>Resource Nether</td><td>Separate world</td><td>Vanilla Nether for gathering.</td></tr><tr><td>Resource End</td><td>Separate world</td><td>Vanilla End for gathering.</td></tr></tbody></table></div>
+
+<h2 id="leaving-spawn">Leaving spawn<a class="anchor" href="#leaving-spawn" aria-label="Link to this section">#</a></h2>
+<p>Jump into the water under the "Jump into action here!" sign. It drops you at a random spot in the main Overworld. Every jump lands somewhere new, so set a home once you find a place you like.</p>
+
+<h2 id="waystones">Waystones<a class="anchor" href="#waystones" aria-label="Link to this section">#</a></h2>
+<p>Waystones are found in villages and out in the wild, and you can craft your own. Right-click one to activate it. After that you can travel to it from any other Waystone, for free. You start with 2 Waystones in the starter kit, so you can put one at your base and one wherever you need it.</p>
+
+<h2 id="homes">Homes<a class="anchor" href="#homes" aria-label="Link to this section">#</a></h2>
+<ul>
+<li><code>/sethome &lt;name&gt;</code> saves where you're standing.</li>
+<li><code>/home &lt;name&gt;</code> takes you there.</li>
+<li><code>/homes</code> lists them, and <code>/delhome &lt;name&gt;</code> deletes one.</li>
+</ul>
+<p>You get 1 home as a Newcomer and one more per rank, up to 10. Homes can't be set in the resource worlds.</p>
+
+<h2 id="resource-worlds">Resource worlds<a class="anchor" href="#resource-worlds" aria-label="Link to this section">#</a></h2>
+<p>The WarpGates at spawn lead to three resource worlds: an Overworld, a Nether and an End. They're plain vanilla terrain, made for mining and gathering so the main world doesn't get stripped bare.</p>
+<ul>
+<li>No claims, no homes and no Waystones.</li>
+<li>To leave, walk back through a WarpGate or use <code>/home</code>.</li>
+<li>Don't build anything you want to keep there.</li>
+</ul>
+
+<h2 id="bosses">Bosses<a class="anchor" href="#bosses" aria-label="Link to this section">#</a></h2>
+<p>The Wither, the Ender Dragon and the Warden each drop a <b>Boss Loot Bag</b> when killed:</p>
+<div class="table-wrap"><table><thead><tr><th>Drop</th><th>Chance</th></tr></thead><tbody><tr><td>50 to 100 Gold Coins</td><td>Always</td></tr><tr><td>Diamond</td><td>40%</td></tr><tr><td>Netherite Scrap</td><td>25%</td></tr><tr><td>Enchanted Golden Apple</td><td>15%</td></tr><tr><td>Netherite Ingot</td><td>10%</td></tr><tr><td>Crate coin: Sapphire Star / Dark Emerald / Onyx / Tenko</td><td>One of these: 40 / 35 / 20 / 5%</td></tr><tr><td>Title Scroll: Epic / Legendary / Unique</td><td>35 / 10 / 1%</td></tr></tbody></table></div>
+<p>The Ender Dragon in the main End comes back 30 minutes after it dies, and has a 35% chance to drop a Dragon Egg on every kill after the first.</p>
+
+<h2 id="death">Dying<a class="anchor" href="#death" aria-label="Link to this section">#</a></h2>
+<p>When you die, everything you carried goes into a gravestone at that spot. Go back and break it, and your items go straight back into your inventory. Only you and staff can break your gravestone.</p>
+
+  <nav class="pager" aria-label="Pages"><a class="prev" href="claims.html"><span>Previous</span>Claims</a><a class="next" href="npcs.html"><span>Next</span>NPCs</a></nav>
+  <footer>Tenko MC · TMC Modpack 1.2 · NeoForge 21.1.255 · Minecraft 1.21.1 · <a href="index.html">Mod Wiki</a> · <a href="install.html">Install Guide</a></footer>
+</article>
+</main>
+</div>
+<script src="wiki.js"></script>
+</body>
+</html>

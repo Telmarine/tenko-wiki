@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Coins & Shops · Tenko MC Wiki</title>
+<meta name="description" content="Tenko&#x27;s money is physical. Coins sit in your inventory like any other item, which means you can drop them, store them in a chest, or lose them if you aren&#x27;">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="wiki.css">
+</head>
+<body>
+<button class="menu-btn" type="button" aria-controls="sidebar" aria-expanded="false">☰ Contents</button>
+<div class="scrim"></div>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="guide.html"><span class="eyebrow">Tenko MC</span><br><span class="name">Server Wiki</span></a>
+  <input id="wiki-search" type="search" placeholder="Search the wiki" autocomplete="off" aria-label="Search the wiki">
+  <ul class="search-results" id="search-results" hidden></ul>
+  <nav id="side-nav" aria-label="Wiki pages"><div class="nav-group"><p class="nav-group-title">Start here</p><ul><li><a class="nav-link" href="guide.html">Overview</a></li><li><a class="nav-link" href="rules.html">Rules</a></li><li><a class="nav-link" href="faq.html">FAQ</a></li></ul></div><div class="nav-group"><p class="nav-group-title">Systems</p><ul><li><a class="nav-link" href="coins.html" aria-current="page">Coins & Shops</a><ul class="toc"><li><a href="#coins">The three coins</a></li><li><a href="#clucky">Converting coins</a></li><li><a href="#account">Your balance and payments</a></li><li><a href="#earning">Ways to earn</a></li><li><a href="#npc-shops">NPC shops at spawn</a></li><li><a href="#player-shops">Player chest shops</a></li><li><a href="#auction-house">Auction house</a></li><li><a href="#prices">Typing prices</a></li></ul></li><li><a class="nav-link" href="crates.html">Crates & Keys</a></li><li><a class="nav-link" href="rewards.html">Playtime & Voting</a></li><li><a class="nav-link" href="ranks.html">Ranks & Limits</a></li><li><a class="nav-link" href="claims.html">Claims</a></li><li><a class="nav-link" href="worlds.html">Travel & Worlds</a></li><li><a class="nav-link" href="npcs.html">NPCs</a></li></ul></div><div class="nav-group"><p class="nav-group-title">Reference</p><ul><li><a class="nav-link" href="commands.html">Commands</a></li><li><a class="nav-link" href="index.html">Mod Wiki</a></li><li><a class="nav-link" href="install.html">Install Guide</a></li></ul></div></nav>
+  <div class="side-facts"><b>play.tenkominecraft.com</b><br>1.21.1 · NeoForge 21.1.255<br><a href="https://discord.gg/GGQyUzt2Rq" target="_blank" rel="noopener">Discord</a></div>
+</aside>
+<main>
+<article class="content">
+  <div class="crumbs"><a href="guide.html">Guide</a> / Systems</div>
+  <h1>Coins & Shops</h1>
+  <p class="lede">Tenko's money is physical. Coins sit in your inventory like any other item, which means you can drop them, store them in a chest, or lose them if you aren't careful.</p>
+  
+<h2 id="coins">The three coins<a class="anchor" href="#coins" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th>Coin</th><th>Worth</th><th class="num">In Bronze</th></tr></thead><tbody><tr><td>Bronze Coin</td><td>1</td><td class="num">1</td></tr><tr><td>Silver Coin</td><td>100 Bronze</td><td class="num">100</td></tr><tr><td>Gold Coin</td><td>100 Silver</td><td class="num">10,000</td></tr></tbody></table></div>
+<p>Coins stack up to 50. A full stack of Gold is 500,000 Bronze, so carrying it all around isn't a great idea. Keep most of it in a chest at home.</p>
+
+<h2 id="clucky">Converting coins<a class="anchor" href="#clucky" aria-label="Link to this section">#</a></h2>
+<p><b>Clucky, Exchanger of Coins</b> stands at spawn and converts in both directions:</p>
+<ul>
+<li>100 Bronze into 1 Silver, and 1 Silver back into 100 Bronze</li>
+<li>100 Silver into 1 Gold, and 1 Gold back into 100 Silver</li>
+</ul>
+<p>There's no fee. Right-click Clucky to open the trade screen.</p>
+
+<h2 id="account">Your balance and payments<a class="anchor" href="#account" aria-label="Link to this section">#</a></h2>
+<p>Besides the coins you carry, you have a balance. The side panel on the right of your screen shows your money as Bronze, Silver and Gold. <code>/sidepanel</code> hides or shows it.</p>
+<ul>
+<li><code>/exchange deposit [amount]</code> moves coins from your inventory into your balance. Leave out the amount to deposit everything.</li>
+<li><code>/exchange withdraw &lt;amount&gt;</code> turns balance back into coins.</li>
+<li><code>/pay &lt;player&gt; &lt;amount&gt;</code> sends money to another player. <code>/pay toggle</code> stops people sending you money.</li>
+<li><code>/bal</code> shows your balance, <code>/baltop</code> the richest players, <code>/payments</code> your recent payments.</li>
+</ul>
+<p>Purchases are never announced in chat or on the Discord.</p>
+
+<h2 id="earning">Ways to earn<a class="anchor" href="#earning" aria-label="Link to this section">#</a></h2>
+<ul>
+<li><b>Playtime rewards:</b> every Rufus tier gives coins along with items. All 20 tiers add up to 1,155 Bronze, 231 Silver and 77 Gold. See <a href="rewards.html">Playtime &amp; Voting</a>.</li>
+<li><b>Loot bags:</b> mobs sometimes drop a loot bag with coins and items. The Wither, Ender Dragon and Warden always drop a Boss Loot Bag with 50 to 100 Gold Coins.</li>
+<li><b>Selling to players:</b> through your own chest shop, the auction house, or a straight trade.</li>
+<li><b>Starter money:</b> Natsubashi gives every new player 30 Bronze, 10 Silver and 2 Gold.</li>
+</ul>
+<p>The NPC shops only sell. They don't buy anything from players.</p>
+
+<h2 id="npc-shops">NPC shops at spawn<a class="anchor" href="#npc-shops" aria-label="Link to this section">#</a></h2>
+<p>The shopkeepers in the spawn houses sell decoration: furniture, lighting, storage blocks, plushies and so on. Prices run from 10 Bronze to 100 Gold, depending on how hard the item is to craft. Everyday items like ores, food and tools are never sold. Those have to be found, farmed or crafted.</p>
+<div class="table-wrap"><table><thead><tr><th>Shop</th><th>Keeper</th><th>Sells</th></tr></thead><tbody><tr><td>The Carpentry Brothers</td><td>Darren and Jonsey</td><td>Furniture (Darren) and outdoor pieces (Jonsey)</td></tr><tr><td>The Chef's Bazaar</td><td>Shanay</td><td>Kitchen goods</td></tr><tr><td>The Ways of Storage</td><td>Tim</td><td>Chests, barrels and storage</td></tr><tr><td>Seela's Luminous Lighting</td><td>Seela</td><td>Lamps and lights</td></tr><tr><td>The Tinker's Cog</td><td>Gerald</td><td>Industrial decor</td></tr><tr><td>The 9-Tailed Fox</td><td>Hibiki</td><td>Eastern and samurai decor</td></tr><tr><td>Ellie's Cuties &amp; Colors</td><td>Ellie</td><td>Dyes and plushies</td></tr><tr><td>Brittany's Accessory Shop</td><td>Brittany</td><td>Curiosities and trinkets</td></tr></tbody></table></div>
+
+<h2 id="player-shops">Player chest shops<a class="anchor" href="#player-shops" aria-label="Link to this section">#</a></h2>
+<p>Any chest or barrel on your own land can be a shop.</p>
+<ol>
+<li>Put the items you're selling in the chest (or leave it empty for a buy shop).</li>
+<li>Look at the chest and type <code>/shop create sell</code> to sell to players, or <code>/shop create buy</code> to buy from them.</li>
+<li>Set the item and price in the menu that opens. One chest can sell several items, each with its own price.</li>
+</ol>
+<p>A sign shows what the shop trades. Your sales go into the shop's till. <code>/shop rename &lt;name&gt;</code> names it and <code>/shop remove</code> takes it down. You get a message when something sells.</p>
+<p>Shops can't be emptied by hoppers, pipes or Create machines, and pistons and drills can't break them. A Create Item Vault can be linked to a shop as a stock vault so the shop restocks itself.</p>
+<p>Spud's Shops blocks also work, if you'd rather sell from a shop block.</p>
+
+<h2 id="auction-house">Auction house<a class="anchor" href="#auction-house" aria-label="Link to this section">#</a></h2>
+<p><code>/ah</code> opens the auction house. Browse by category, search, buy outright, or bid.</p>
+<ul>
+<li><b>Selling:</b> hold the item and type <code>/ah sell</code>. Pick buy-now or auction, set the price and choose how long it runs: 1, 6, 12 or 24 hours.</li>
+<li><b>Bidding:</b> each bid has to be at least 5% above the last one.</li>
+<li><b>Limits:</b> up to 10 listings at a time.</li>
+<li><b>Collecting:</b> money from sales, items that didn't sell and items you won go to your collection box. <code>/ah collect</code> takes everything out, and <code>/ah listings</code> shows your own listings.</li>
+<li>There's no sales tax.</li>
+</ul>
+
+<h2 id="prices">Typing prices<a class="anchor" href="#prices" aria-label="Link to this section">#</a></h2>
+<p>Prices in shops and the auction house are typed as one number in Bronze.</p>
+<div class="table-wrap"><table><thead><tr><th>Price</th><th>Type</th></tr></thead><tbody><tr><td>10 Bronze</td><td><code>10</code></td></tr><tr><td>5 Silver</td><td><code>500</code></td></tr><tr><td>1 Gold</td><td><code>10000</code> or <code>10k</code></td></tr><tr><td>1 Gold 50 Silver</td><td><code>15000</code></td></tr><tr><td>3 Gold</td><td><code>30k</code></td></tr></tbody></table></div>
+<div class="note warn"><b>Don't add a coin letter.</b> <code>k</code> means thousand and <code>m</code> means million. A <code>b</code> on the end means billion, not Bronze.</div>
+
+  <nav class="pager" aria-label="Pages"><a class="prev" href="faq.html"><span>Previous</span>FAQ</a><a class="next" href="crates.html"><span>Next</span>Crates & Keys</a></nav>
+  <footer>Tenko MC · TMC Modpack 1.2 · NeoForge 21.1.255 · Minecraft 1.21.1 · <a href="index.html">Mod Wiki</a> · <a href="install.html">Install Guide</a></footer>
+</article>
+</main>
+</div>
+<script src="wiki.js"></script>
+</body>
+</html>

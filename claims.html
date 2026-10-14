@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Claims · Tenko MC Wiki</title>
+<meta name="description" content="Claimed land is protected. Nobody can break, place, open chests or use anything on it unless you let them. Claims are made one chunk (16 × 16 blocks, full ">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="wiki.css">
+</head>
+<body>
+<button class="menu-btn" type="button" aria-controls="sidebar" aria-expanded="false">☰ Contents</button>
+<div class="scrim"></div>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="guide.html"><span class="eyebrow">Tenko MC</span><br><span class="name">Server Wiki</span></a>
+  <input id="wiki-search" type="search" placeholder="Search the wiki" autocomplete="off" aria-label="Search the wiki">
+  <ul class="search-results" id="search-results" hidden></ul>
+  <nav id="side-nav" aria-label="Wiki pages"><div class="nav-group"><p class="nav-group-title">Start here</p><ul><li><a class="nav-link" href="guide.html">Overview</a></li><li><a class="nav-link" href="rules.html">Rules</a></li><li><a class="nav-link" href="faq.html">FAQ</a></li></ul></div><div class="nav-group"><p class="nav-group-title">Systems</p><ul><li><a class="nav-link" href="coins.html">Coins & Shops</a></li><li><a class="nav-link" href="crates.html">Crates & Keys</a></li><li><a class="nav-link" href="rewards.html">Playtime & Voting</a></li><li><a class="nav-link" href="ranks.html">Ranks & Limits</a></li><li><a class="nav-link" href="claims.html" aria-current="page">Claims</a><ul class="toc"><li><a href="#deed">The Claim Deed</a></li><li><a href="#outlines">Claim outlines</a></li><li><a href="#limits">How much you can claim</a></li><li><a href="#properties">Properties</a></li><li><a href="#trust">Trusting players</a></li><li><a href="#land-config">Land Config: ranks, flags and bans</a></li><li><a href="#sub-areas">Sub-areas</a></li><li><a href="#locks">Locks and keys</a></li></ul></li><li><a class="nav-link" href="worlds.html">Travel & Worlds</a></li><li><a class="nav-link" href="npcs.html">NPCs</a></li></ul></div><div class="nav-group"><p class="nav-group-title">Reference</p><ul><li><a class="nav-link" href="commands.html">Commands</a></li><li><a class="nav-link" href="index.html">Mod Wiki</a></li><li><a class="nav-link" href="install.html">Install Guide</a></li></ul></div></nav>
+  <div class="side-facts"><b>play.tenkominecraft.com</b><br>1.21.1 · NeoForge 21.1.255<br><a href="https://discord.gg/GGQyUzt2Rq" target="_blank" rel="noopener">Discord</a></div>
+</aside>
+<main>
+<article class="content">
+  <div class="crumbs"><a href="guide.html">Guide</a> / Systems</div>
+  <h1>Claims</h1>
+  <p class="lede">Claimed land is protected. Nobody can break, place, open chests or use anything on it unless you let them. Claims are made one chunk (16 × 16 blocks, full height) at a time.</p>
+  
+<h2 id="deed">The Claim Deed<a class="anchor" href="#deed" aria-label="Link to this section">#</a></h2>
+<p>Type <code>/claim deed</code> to get a Claim Deed. You can get a new one once every 30 minutes, so don't lose it.</p>
+<ul>
+<li><b>Right-click</b> with the Deed to claim the chunk you're standing in.</li>
+<li><b>Sneak and right-click</b> to unclaim it.</li>
+<li><b>Right-click inside your own claim</b> to open Land Config.</li>
+</ul>
+<p>Claims work in the main Overworld, Nether and End. The resource worlds and spawn can't be claimed.</p>
+
+<h2 id="outlines">Claim outlines<a class="anchor" href="#outlines" aria-label="Link to this section">#</a></h2>
+<p>While you hold the Deed, nearby claims get a thin outline at your feet:</p>
+<div class="table-wrap"><table><thead><tr><th>Color</th><th>Meaning</th></tr></thead><tbody><tr><td><span class="chip" style="background:#7bd34a"></span>Green</td><td>Your claims</td></tr><tr><td><span class="chip" style="background:#7ec8f2"></span>Light blue</td><td>Claims you're trusted in</td></tr><tr><td><span class="chip" style="background:#d94a3d"></span>Red</td><td>Other players' claims</td></tr><tr><td><span class="chip" style="background:#f0952f"></span>Orange</td><td>Admin claims</td></tr><tr><td><span class="chip" style="background:#f2d43c"></span>Yellow</td><td>Sub-areas</td></tr><tr><td><span class="chip" style="background:#ffffff"></span>White</td><td>The unclaimed chunk you're standing in</td></tr></tbody></table></div>
+
+<h2 id="limits">How much you can claim<a class="anchor" href="#limits" aria-label="Link to this section">#</a></h2>
+<p>Newcomers get 100 chunks. Each rank adds 100, up to 1,000 at Tenko. See <a href="ranks.html">Ranks &amp; Limits</a>.</p>
+<p>There has to be a gap of at least 2 chunks between your claim and another player's. Claims don't expire.</p>
+
+<h2 id="properties">Properties<a class="anchor" href="#properties" aria-label="Link to this section">#</a></h2>
+<p>All the land you claim belongs to your property. It has its own name, ranks and flags. Every rank can own 1 property, and your chunk allowance covers everything in it, across the Overworld, Nether and End.</p>
+<ul>
+<li><code>/claim &lt;property&gt; transfer &lt;player&gt;</code> gives a property to another player. They have to be online, have enough free chunks, and accept. Claims doesn't move money, so agree on the price first.</li>
+</ul>
+
+<h2 id="trust">Trusting players<a class="anchor" href="#trust" aria-label="Link to this section">#</a></h2>
+<ul>
+<li><code>/trust &lt;player&gt;</code> lets someone use your land. Run it inside a claim to trust them in that claim only, or outside your claims to trust them everywhere.</li>
+<li><code>/untrust &lt;player&gt;</code> removes them.</li>
+<li><code>/trustlist</code> shows who's trusted.</li>
+</ul>
+
+<h2 id="land-config">Land Config: ranks, flags and bans<a class="anchor" href="#land-config" aria-label="Link to this section">#</a></h2>
+<p>Type <code>/claim</code> inside your claim (or right-click with the Deed) to open Land Config. Outside your claims, <code>/claim</code> shows your claim list.</p>
+<ul>
+<li><b>Ranks:</b> make up to 10 ranks, like Friend, Builder or Shop Helper, and choose exactly what each one can do: build, open chests, use doors, use machines, hit animals and more.</li>
+<li><b>Admin Mode:</b> give one rank Admin Mode and its members can trust, untrust, promote, demote and ban anyone ranked below them. Only you see this toggle.</li>
+<li><b>Flags:</b> rules for the land itself, such as explosions, fire spread and what visitors can do.</li>
+<li><b>Bans:</b> a banned player is removed from every list in the claim and can't enter it. If they're inside, they get moved just outside the border.</li>
+</ul>
+
+<h2 id="sub-areas">Sub-areas<a class="anchor" href="#sub-areas" aria-label="Link to this section">#</a></h2>
+<p>A sub-area is a smaller zone inside your claim with its own player list, like a shop stall or a friend's house in your town. Up to 20 per claim.</p>
+<ol>
+<li>Open Land Config, go to Sub-areas and take the Sub-area Stick.</li>
+<li>Right-click two corners to mark the area.</li>
+<li>Give players a rank just inside it: <code>/trust &lt;player&gt; &lt;subarea&gt; &lt;rank&gt;</code>. Names with spaces go in quotes: <code>/trust Steve "Shop 1" "Shop Owner"</code>.</li>
+<li><code>/untrust &lt;player&gt; &lt;subarea&gt;</code> takes them out of the sub-area. Their rank in the rest of the claim stays.</li>
+</ol>
+<p>You can pick one player as a sub-area's manager. They can add, remove and rank players there while you're away, but only with ranks below their own.</p>
+<p>If you remove someone who still has blocks in a sub-area, they get 7 days to collect their things. After that, or once they've taken everything, whatever's left is yours.</p>
+
+<h2 id="locks">Locks and keys<a class="anchor" href="#locks" aria-label="Link to this section">#</a></h2>
+<p>For extra safety inside your own base, use a Key on a safe or a netherite door to lock it. After that it only opens for a player holding a matching key. Rename the key in an anvil to tell them apart.</p>
+
+  <nav class="pager" aria-label="Pages"><a class="prev" href="ranks.html"><span>Previous</span>Ranks & Limits</a><a class="next" href="worlds.html"><span>Next</span>Travel & Worlds</a></nav>
+  <footer>Tenko MC · TMC Modpack 1.2 · NeoForge 21.1.255 · Minecraft 1.21.1 · <a href="index.html">Mod Wiki</a> · <a href="install.html">Install Guide</a></footer>
+</article>
+</main>
+</div>
+<script src="wiki.js"></script>
+</body>
+</html>
