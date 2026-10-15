@@ -13,15 +13,15 @@
 <div class="scrim"></div>
 <div class="layout">
 <aside class="sidebar" id="sidebar">
-  <a class="brand" href="guide.html"><span class="eyebrow">Tenko MC</span><br><span class="name">Server Wiki</span></a>
+  <a class="brand" href="index.html"><span class="eyebrow">Tenko MC</span><br><span class="name">Server Wiki</span></a>
   <input id="wiki-search" type="search" placeholder="Search the wiki" autocomplete="off" aria-label="Search the wiki">
   <ul class="search-results" id="search-results" hidden></ul>
-  <nav id="side-nav" aria-label="Wiki pages"><div class="nav-group"><p class="nav-group-title">Start here</p><ul><li><a class="nav-link" href="guide.html">Overview</a></li><li><a class="nav-link" href="rules.html">Rules</a></li><li><a class="nav-link" href="faq.html">FAQ</a></li></ul></div><div class="nav-group"><p class="nav-group-title">Systems</p><ul><li><a class="nav-link" href="coins.html" aria-current="page">Coins & Shops</a><ul class="toc"><li><a href="#coins">The three coins</a></li><li><a href="#clucky">Converting coins</a></li><li><a href="#account">Your balance and payments</a></li><li><a href="#earning">Ways to earn</a></li><li><a href="#npc-shops">NPC shops at spawn</a></li><li><a href="#player-shops">Player chest shops</a></li><li><a href="#auction-house">Auction house</a></li><li><a href="#prices">Typing prices</a></li></ul></li><li><a class="nav-link" href="crates.html">Crates & Keys</a></li><li><a class="nav-link" href="rewards.html">Playtime & Voting</a></li><li><a class="nav-link" href="ranks.html">Ranks & Limits</a></li><li><a class="nav-link" href="claims.html">Claims</a></li><li><a class="nav-link" href="worlds.html">Travel & Worlds</a></li><li><a class="nav-link" href="npcs.html">NPCs</a></li></ul></div><div class="nav-group"><p class="nav-group-title">Reference</p><ul><li><a class="nav-link" href="commands.html">Commands</a></li><li><a class="nav-link" href="index.html">Mod Wiki</a></li><li><a class="nav-link" href="install.html">Install Guide</a></li></ul></div></nav>
+  <nav id="side-nav" aria-label="Wiki pages"><div class="nav-group"><p class="nav-group-title">Start here</p><ul><li><a class="nav-link" href="index.html">Overview</a></li><li><a class="nav-link" href="rules.html">Rules</a></li><li><a class="nav-link" href="faq.html">FAQ</a></li></ul></div><div class="nav-group"><p class="nav-group-title">Systems</p><ul><li><a class="nav-link" href="coins.html" aria-current="page">Coins & Shops</a><ul class="toc"><li><a href="#coins">The three coins</a></li><li><a href="#clucky">Converting coins</a></li><li><a href="#account">Your bank and payments</a></li><li><a href="#earning">Ways to earn</a></li><li><a href="#npc-shops">NPC shops at spawn</a></li><li><a href="#player-shops">Player chest shops</a></li><li><a href="#auction-house">Auction house</a></li><li><a href="#prices">Typing prices</a></li></ul></li><li><a class="nav-link" href="crates.html">Crates & Keys</a></li><li><a class="nav-link" href="rewards.html">Playtime & Voting</a></li><li><a class="nav-link" href="ranks.html">Ranks & Limits</a></li><li><a class="nav-link" href="claims.html">Claims</a></li><li><a class="nav-link" href="worlds.html">Travel & Worlds</a></li><li><a class="nav-link" href="npcs.html">NPCs</a></li></ul></div><div class="nav-group"><p class="nav-group-title">Reference</p><ul><li><a class="nav-link" href="commands.html">Commands</a></li><li><a class="nav-link" href="mods.html">Mod Wiki</a></li><li><a class="nav-link" href="install.html">Install Guide</a></li></ul></div></nav>
   <div class="side-facts"><b>play.tenkominecraft.com</b><br>1.21.1 · NeoForge 21.1.255<br><a href="https://discord.gg/GGQyUzt2Rq" target="_blank" rel="noopener">Discord</a></div>
 </aside>
 <main>
 <article class="content">
-  <div class="crumbs"><a href="guide.html">Guide</a> / Systems</div>
+  <div class="crumbs"><a href="index.html">Guide</a> / Systems</div>
   <h1>Coins & Shops</h1>
   <p class="lede">Tenko's money is physical. Coins sit in your inventory like any other item, which means you can drop them, store them in a chest, or lose them if you aren't careful.</p>
   
@@ -37,13 +37,13 @@
 </ul>
 <p>There's no fee. Right-click Clucky to open the trade screen.</p>
 
-<h2 id="account">Your balance and payments<a class="anchor" href="#account" aria-label="Link to this section">#</a></h2>
-<p>Besides the coins you carry, you have a balance. The side panel on the right of your screen shows your money as Bronze, Silver and Gold. <code>/sidepanel</code> hides or shows it.</p>
+<h2 id="account">Your bank and payments<a class="anchor" href="#account" aria-label="Link to this section">#</a></h2>
+<p>Besides the coins you carry, you have a bank. Coins in the bank stay on the server, so they can't be dropped or lost. The side panel on the right of your screen shows the coins you carry as Bronze, Silver and Gold. <code>/sidepanel</code> hides or shows it.</p>
 <ul>
-<li><code>/exchange deposit [amount]</code> moves coins from your inventory into your balance. Leave out the amount to deposit everything.</li>
-<li><code>/exchange withdraw &lt;amount&gt;</code> turns balance back into coins.</li>
+<li><code>/exchange deposit [amount] [bronze|silver|gold]</code> puts coins into your bank. Add the coin type after the amount to count in Bronze, Silver or Gold. Leave out the amount to deposit every coin you carry.</li>
+<li><code>/exchange withdraw &lt;amount&gt; [bronze|silver|gold]</code> takes coins back out of your bank. You get the fewest coins that add up to the amount.</li>
 <li><code>/pay &lt;player&gt; &lt;amount&gt;</code> sends money to another player. <code>/pay toggle</code> stops people sending you money.</li>
-<li><code>/bal</code> shows your balance, <code>/baltop</code> the richest players, <code>/payments</code> your recent payments.</li>
+<li><code>/bal</code> shows the coins you carry and your bank, <code>/baltop</code> the richest players, <code>/payments</code> your recent payments.</li>
 </ul>
 <p>Purchases are never announced in chat or on the Discord.</p>
 
@@ -87,7 +87,7 @@
 <div class="note warn"><b>Don't add a coin letter.</b> <code>k</code> means thousand and <code>m</code> means million. A <code>b</code> on the end means billion, not Bronze.</div>
 
   <nav class="pager" aria-label="Pages"><a class="prev" href="faq.html"><span>Previous</span>FAQ</a><a class="next" href="crates.html"><span>Next</span>Crates & Keys</a></nav>
-  <footer>Tenko MC · TMC Modpack 1.2 · NeoForge 21.1.255 · Minecraft 1.21.1 · <a href="index.html">Mod Wiki</a> · <a href="install.html">Install Guide</a></footer>
+  <footer>Tenko MC · TMC Modpack 1.2 · NeoForge 21.1.255 · Minecraft 1.21.1 · <a href="mods.html">Mod Wiki</a> · <a href="install.html">Install Guide</a></footer>
 </article>
 </main>
 </div>

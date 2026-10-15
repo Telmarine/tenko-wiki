@@ -3,472 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Tenko MC Mod Wiki</title>
-<meta name="description" content="Tenko Minecraft - NeoForge 1.21.1 modpack server. play.tenkominecraft.com">
+<title>How Tenko Works · Tenko MC Wiki</title>
+<meta name="description" content="Tenko MC is a modded survival server on Minecraft 1.21.1 and NeoForge. This section of the wiki covers the server itself: money, ranks, land, rewards, trav">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
-<style>
-[hidden] { display: none !important; }
-img { max-width: 100%; }
-/* Layout: one reading column; sticky search + category pills; card grids per category; server-features block up top. */
-:root {
-  --bg: #f1f3f5;
-  --surface: #ffffff;
-  --surface-2: #e7ebee;
-  --text: #1a1d23;
-  --text-dim: #565f6b;
-  --border: #d7dce1;
-  --accent: #b8791e;
-  --accent-ink: #7a5013;
-  --mono-bg: #eef1f3;
-  --shadow: 0 1px 2px rgba(20,22,27,0.06), 0 8px 24px -12px rgba(20,22,27,0.12);
-  --font-display: 'Chivo', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'Work Sans', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
-
-  --c-server: #8a4fbf;
-  --c-world: #2f9e6e;
-  --c-mobs: #a8772f;
-  --c-build: #cf6a3e;
-  --c-auto: #3f7fbf;
-  --c-storage: #b3961f;
-  --c-food: #c94f3d;
-  --c-fun: #c15a9e;
-  --c-qol: #2ba9a6;
-  --c-perf: #7a5fc9;
-  --c-lib: #7a828c;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #14161b; --surface: #1b1e25; --surface-2: #242830; --text: #e8eaed; --text-dim: #9aa3ad;
-    --border: #333944; --accent: #e2a94d; --accent-ink: #f4cf8e; --mono-bg: #20242c;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.55);
-    --c-server: #b98ae6; --c-world: #3fc98c; --c-mobs: #d0a05a; --c-build: #ff8f63; --c-auto: #6aa3e0;
-    --c-storage: #dcc154; --c-food: #e87d6b; --c-fun: #e084c4; --c-qol: #4fd3d0; --c-perf: #a48cf0; --c-lib: #8b93a0;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #14161b; --surface: #1b1e25; --surface-2: #242830; --text: #e8eaed; --text-dim: #9aa3ad;
-  --border: #333944; --accent: #e2a94d; --accent-ink: #f4cf8e; --mono-bg: #20242c;
-  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.55);
-  --c-server: #b98ae6; --c-world: #3fc98c; --c-mobs: #d0a05a; --c-build: #ff8f63; --c-auto: #6aa3e0;
-  --c-storage: #dcc154; --c-food: #e87d6b; --c-fun: #e084c4; --c-qol: #4fd3d0; --c-perf: #a48cf0; --c-lib: #8b93a0;
-  color-scheme: dark;
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; padding: 0 20px; }
-.wrap { max-width: 900px; margin: 0 auto; padding-block: 44px 80px; }
-h1, h2 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
-a { color: var(--accent-ink); }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-code { font-family: var(--font-mono); background: var(--mono-bg); border: 1px solid var(--border); border-radius: 4px; padding: 0.05em 0.35em; font-size: 0.86em; }
-.eyebrow { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-ink); font-weight: 600; margin-bottom: 14px; }
-h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; }
-.lede { color: var(--text-dim); max-width: 66ch; margin: 12px 0 0; }
-.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-.fact { font-family: var(--font-mono); font-size: 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; }
-.fact b { color: var(--accent-ink); font-weight: 600; }
-
-.controls { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; position: sticky; top: env(safe-area-inset-top, 0px); background: var(--bg); padding-block: 12px 14px; z-index: 5; border-bottom: 1px solid var(--border); }
-#search { width: 100%; font-family: var(--font-body); font-size: 1rem; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
-#search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-.nav-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-.nav-pill { font-family: var(--font-mono); font-size: 0.78rem; text-decoration: none; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--cat, var(--accent)); border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
-#empty-msg { margin-top: 40px; color: var(--text-dim); font-family: var(--font-mono); font-size: 0.9rem; }
-
-/* server features */
-.features { margin-top: 44px; }
-.features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px; margin-top: 16px; }
-.feature { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--c-server); border-radius: 8px; padding: 14px 16px; min-width: 0; }
-.feature h3 { font-family: var(--font-display); font-size: 0.98rem; margin: 0 0 6px; }
-.feature p { margin: 0; font-size: 0.88rem; color: var(--text-dim); }
-.feature p + p { margin-top: 6px; }
-.keys { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-.key { font-family: var(--font-mono); font-size: 0.74rem; border: 1px solid var(--border); background: var(--surface-2); border-radius: 4px; padding: 2px 7px; color: var(--text); }
-
-/* categories */
-.category { margin-top: 44px; }
-.category-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
-.cat-dot { width: 11px; height: 11px; border-radius: 3px; background: var(--cat, var(--accent)); flex: none; }
-.category-head h2 { font-size: 1.25rem; font-weight: 700; }
-.category-count { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-dim); }
-.category-desc { color: var(--text-dim); font-size: 0.92rem; margin: 4px 0 16px; max-width: 62ch; }
-.mod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
-.mod-card { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--cat, var(--accent)); border-radius: 10px; padding: 14px 16px; box-shadow: var(--shadow); min-width: 0; }
-.mod-card h3 { font-family: var(--font-display); font-size: 0.98rem; font-weight: 700; margin: 0 0 6px; }
-.mod-card h3 a { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--border); }
-.mod-card h3 a:hover, .mod-card h3 a:focus-visible { color: var(--accent-ink); border-bottom-color: var(--accent-ink); }
-.mod-card p { margin: 0; font-size: 0.87rem; color: var(--text-dim); }
-.tag { display: inline-block; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-dim); border: 1px solid var(--border); border-radius: 4px; padding: 0 5px; margin-left: 6px; vertical-align: 2px; }
-
-.collapsible .category-head { cursor: pointer; user-select: none; border-radius: 8px; margin: -6px -8px 6px; padding: 6px 8px; }
-.collapsible .category-head:hover { background: var(--surface-2); }
-.collapsible .category-head:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.chevron { display: inline-block; font-size: 0.75rem; color: var(--text-dim); transition: transform 0.15s ease; flex: none; }
-.collapsible .category-head[aria-expanded="true"] .chevron { transform: rotate(90deg); }
-.collapse-hint { font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-dim); margin-left: auto; }
-.simple-list .mod-card h3 { margin: 0; }
-
-footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 0.85rem; }
-@media (prefers-reduced-motion: reduce) { .chevron { transition: none; } }
-</style>
+<link rel="stylesheet" href="wiki.css">
 </head>
 <body>
-<div class="wrap">
-  <div class="eyebrow">Tenko MC &middot; TMC Modpack 1.2</div>
-  <h1>Mod Wiki</h1>
-  <p class="lede">What every mod in the pack does, in plain terms, plus how the server's own systems work. 105 mods across 11 categories, plus Tenko's own mods. Search below or jump to a category.</p>
-  <p class="lede" style="margin-top:6px;">Setting up your game? Start with the <a href="install.html" style="font-weight:600;">Install Guide</a>. Rules, commands, ranks, crates and the rest are in the <a href="guide.html" style="font-weight:600;">Server Wiki</a>.</p>
-  <div class="facts">
-    <span class="fact">Server: <b>play.tenkominecraft.com</b></span>
-    <span class="fact">Minecraft <b>1.21.1</b></span>
-    <span class="fact">NeoForge <b>21.1.255</b></span>
-    <span class="fact">Discord: <a href="https://discord.gg/GGQyUzt2Rq" target="_blank" rel="noopener"><b>discord.gg/GGQyUzt2Rq</b></a></span>
-  </div>
+<button class="menu-btn" type="button" aria-controls="sidebar" aria-expanded="false">☰ Contents</button>
+<div class="scrim"></div>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="index.html"><span class="eyebrow">Tenko MC</span><br><span class="name">Server Wiki</span></a>
+  <input id="wiki-search" type="search" placeholder="Search the wiki" autocomplete="off" aria-label="Search the wiki">
+  <ul class="search-results" id="search-results" hidden></ul>
+  <nav id="side-nav" aria-label="Wiki pages"><div class="nav-group"><p class="nav-group-title">Start here</p><ul><li><a class="nav-link" href="index.html" aria-current="page">Overview</a><ul class="toc"><li><a href="#first-steps">Your first hour</a></li><li><a href="#systems">The systems</a></li><li><a href="#how-it-fits">How it fits together</a></li><li><a href="#good-to-know">Good to know</a></li></ul></li><li><a class="nav-link" href="rules.html">Rules</a></li><li><a class="nav-link" href="faq.html">FAQ</a></li></ul></div><div class="nav-group"><p class="nav-group-title">Systems</p><ul><li><a class="nav-link" href="coins.html">Coins & Shops</a></li><li><a class="nav-link" href="crates.html">Crates & Keys</a></li><li><a class="nav-link" href="rewards.html">Playtime & Voting</a></li><li><a class="nav-link" href="ranks.html">Ranks & Limits</a></li><li><a class="nav-link" href="claims.html">Claims</a></li><li><a class="nav-link" href="worlds.html">Travel & Worlds</a></li><li><a class="nav-link" href="npcs.html">NPCs</a></li></ul></div><div class="nav-group"><p class="nav-group-title">Reference</p><ul><li><a class="nav-link" href="commands.html">Commands</a></li><li><a class="nav-link" href="mods.html">Mod Wiki</a></li><li><a class="nav-link" href="install.html">Install Guide</a></li></ul></div></nav>
+  <div class="side-facts"><b>play.tenkominecraft.com</b><br>1.21.1 · NeoForge 21.1.255<br><a href="https://discord.gg/GGQyUzt2Rq" target="_blank" rel="noopener">Discord</a></div>
+</aside>
+<main>
+<article class="content">
+  <div class="crumbs">Guide</div>
+  <h1>How Tenko Works</h1>
+  <p class="lede">Tenko MC is a modded survival server on Minecraft 1.21.1 and NeoForge. This section of the wiki covers the server itself: money, ranks, land, rewards, travel and the rules. For what each mod adds, see the <a href="mods.html">Mod Wiki</a>.</p>
+  
+<div class="infobox"><h4>Tenko MC at a glance</h4><dl>
+<dt>Address</dt><dd>play.tenkominecraft.com</dd>
+<dt>Version</dt><dd>1.21.1, NeoForge 21.1.255</dd>
+<dt>Modpack</dt><dd>TMC Modpack 1.2</dd>
+<dt>Main world</dt><dd>25,000 × 25,000</dd>
+<dt>Money</dt><dd>Bronze, Silver, Gold Coins</dd>
+<dt>Ranks</dt><dd>Earned by voting</dd>
+<dt>PvP</dt><dd>On, opt out with <code>/pvp off</code></dd>
+<dt>Teleports</dt><dd>None. Waystones and homes only</dd>
+</dl></div>
+<h2 id="first-steps">Your first hour<a class="anchor" href="#first-steps" aria-label="Link to this section">#</a></h2>
+<ol>
+<li><b>Talk to Natsubashi</b>, the Tenko Guardian, at spawn. He gives you the Book of Knowledge, the starter kit (iron armor and tools, bread, 2 golden apples, 2 Waystones), 30 Bronze, 10 Silver, 2 Gold and a stack of torches.</li>
+<li><b>Read the rules</b> with <code>/rules</code>, or the full version on the <a href="rules.html">Rules</a> page.</li>
+<li><b>Look around spawn.</b> The shops, Clucky's coin exchange, Rufus, the five crates and the WarpGates to the resource worlds are all here.</li>
+<li><b>Jump into the water</b> at the "Jump into action here!" sign. It drops you at a random spot in the main world.</li>
+<li><b>Find a spot and claim it.</b> Run <code>/claim deed</code>, hold the Claim Deed and right-click to claim the chunk you're standing in. See <a href="claims.html">Claims</a>.</li>
+<li><b>Set a home</b> with <code>/sethome base</code>. There's no <code>/spawn</code>, <code>/tpa</code> or <code>/back</code>, so homes and Waystones are how you get around.</li>
+<li><b>Place a Waystone</b> from your starter kit and name it. Tenko Spawn is already on every Waystone's list, so this is your way back to spawn.</li>
+<li><b>Vote</b> with <code>/vote</code>. Every vote is a Vote Coin and counts toward your next rank.</li>
+</ol>
 
-  <div class="controls">
-    <input id="search" type="text" placeholder="Search mods by name, category or what they do" autocomplete="off" aria-label="Search mods">
-    <div class="nav-pills">
-      <a class="nav-pill" style="--cat: var(--c-server)" href="guide.html">Server Wiki</a>
-      <a class="nav-pill" style="--cat: var(--c-server)" href="#server">How Tenko works</a>
-      <a class="nav-pill" style="--cat: var(--accent)" href="#tenko-mods">Tenko's Own Mods (6)</a>
-      <a class="nav-pill" style="--cat: var(--c-server)" href="#economy">Economy &amp; NPCs (4)</a>
-      <a class="nav-pill" style="--cat: var(--c-mobs)" href="#mobs">Mobs &amp; Animals (3)</a>
-      <a class="nav-pill" style="--cat: var(--c-build)" href="#build">Building &amp; Decoration (22)</a>
-      <a class="nav-pill" style="--cat: var(--c-auto)" href="#auto">Automation &amp; Machines (13)</a>
-      <a class="nav-pill" style="--cat: var(--c-storage)" href="#storage">Storage &amp; Organization (4)</a>
-      <a class="nav-pill" style="--cat: var(--c-food)" href="#food">Food &amp; Cooking (8)</a>
-      <a class="nav-pill" style="--cat: var(--c-fun)" href="#fun">Cosmetics &amp; Fun (4)</a>
-      <a class="nav-pill" style="--cat: var(--c-qol)" href="#qol">Quality of Life &amp; Info (10)</a>
-      <a class="nav-pill" style="--cat: var(--c-world)" href="#world">World &amp; Exploration (7)</a>
-      <a class="nav-pill" style="--cat: var(--c-perf)" href="#perf">Performance (3)</a>
-      <a class="nav-pill" style="--cat: var(--c-lib)" href="#lib">Library / Dependency (26)</a>
-    </div>
-  </div>
-
-  <div id="empty-msg" hidden>No mods match that search.</div>
-
-  <section class="features" id="server">
-    <div class="category-head"><span class="cat-dot" style="--cat: var(--c-server)"></span><h2>How Tenko works</h2></div>
-    <p class="category-desc">The server's own systems. Everything here is found or earned in the world. Nothing is pay-to-win. The <a href="guide.html">Server Wiki</a> covers each one in full.</p>
-    <div class="features-grid">
-      <div class="feature">
-        <h3>Coins</h3>
-        <p>Money is physical: Bronze, Silver and Gold Coins you carry and trade. Spend them at the NPC shops in the spawn houses or in other players' shops.</p>
-        <p>Clucky at spawn swaps 100 Bronze for 1 Silver and 100 Silver for 1 Gold, and back.</p>
-      </div>
-      <div class="feature">
-        <h3>Crates &amp; keys</h3>
-        <p>Five crates sit at spawn, each opened with its own coin. Keys come from voting, Lootr chests, rare mob drops and boss kills.</p>
-        <div class="keys"><span class="key">Vote Coin</span><span class="key">Sapphire Star Coin</span><span class="key">Dark Emerald Coin</span><span class="key">Onyx Coin</span><span class="key">Tenko Coin</span></div>
-      </div>
-      <div class="feature">
-        <h3>Voting &amp; ranks</h3>
-        <p>Type <code>/vote</code> for the five vote sites. Each vote gives a Vote Coin, and votes add up to new ranks, from Ichibi up to Tenko. Every rank adds one more home.</p>
-      </div>
-      <div class="feature">
-        <h3>Codex: Title Scrolls</h3>
-        <p>Scrolls found in loot unlock chat titles, from common to legendary. Pick the one you show with <code>/title</code>.</p>
-      </div>
-      <div class="feature">
-        <h3>Travel</h3>
-        <p>Waystones carry you between places you've found. Set homes with <code>/sethome</code> and return with <code>/home</code>.</p>
-        <p>WarpGates at spawn lead to the three resource worlds.</p>
-      </div>
-      <div class="feature">
-        <h3>Resource worlds</h3>
-        <p>Separate Overworld, Nether and End worlds with plain vanilla generation, made for mining and gathering. They can't be claimed, and homes and Waystones don't work there. Leave through the WarpGates or <code>/home</code>.</p>
-      </div>
-      <div class="feature">
-        <h3>Boss loot</h3>
-        <p>The Wither, the Ender Dragon and the Warden each drop a Boss Loot Bag, a chance at crate keys and a chance at an Epic, Legendary or Unique Title Scroll.</p>
-        <p>The Ender Dragon can also drop its egg on repeat kills.</p>
-      </div>
-      <div class="feature">
-        <h3>Playtime rewards</h3>
-        <p>Rufus at spawn hands out rewards for time played. Time spent AFK doesn't count.</p>
-      </div>
-      <div class="feature">
-        <h3>Claims</h3>
-        <p>Hold a Claim Deed and right-click to claim the chunk you're standing in. Sneak + right-click unclaims it. Lost your Deed? <code>/claim deed</code> gives you a new one.</p>
-        <p>Share your land with <code>/trust &lt;player&gt;</code>. Type <code>/claim</code> inside your claim to set ranks, flags and sub-areas.</p>
-      </div>
-      <div class="feature">
-        <h3>PvP</h3>
-        <p>PvP is on. Turn it off for yourself with <code>/pvp</code> (30-second cooldown). You can't toggle it in the 15 seconds after a fight.</p>
-      </div>
-      <div class="feature">
-        <h3>Sitting &amp; riding</h3>
-        <p>Sit on almost any block with <code>/sit</code>. Piggyback lets you carry another player.</p>
-      </div>
-      <div class="feature">
-        <h3>Help in game</h3>
-        <p>Natsubashi at spawn gives every new player the Book of Knowledge and a starter kit. <code>/rules</code> and <code>/help</code> cover the basics.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="category" id="tenko-mods" style="--cat: var(--accent)">
-    <div class="category-head"><span class="cat-dot"></span><h2>Tenko's Own Mods</h2><span class="category-count">6 mods</span></div>
-    <p class="category-desc">Built for Tenko by TAC5 Studios. Mods marked server run on the server only, so there's nothing extra to install.</p>
-    <div class="mod-grid">
-      <div class="mod-card"><h3>Codex: Title Scrolls</h3><p>Scrolls found in loot unlock chat titles you can show next to your name. Choose yours with <code>/title</code>.</p></div>
-      <div class="mod-card"><h3>Elements: Nexus <span class="tag">server</span></h3><p>Runs ranks, chat, the tab list and the side panel, plus homes, kits, <code>/pvp</code>, <code>/phantoms</code>, <code>/vote</code> and the Discord chat link. Show off an item in chat with <code>[item]</code> or by shift + right-clicking it in your inventory.</p></div>
-      <div class="mod-card"><h3>Elements: Economy <span class="tag">server</span></h3><p>Adds the auction house (<code>/ah</code>) and chest shops (look at a chest and type <code>/shop create buy</code> or <code>/shop create sell</code>), all paid in Tenko coins. See your trade history with <code>/payments</code>.</p></div>
-      <div class="mod-card"><h3>Elements: Claims <span class="tag">server</span></h3><p>Claim land with a Claim Deed and trust friends into ranks you set up yourself. <code>/claim</code> opens the Land Config menu for ranks, flags and sub-areas. Hold the Deed to see claim outlines.</p></div>
-      <div class="mod-card"><h3>Elements: Vault <span class="tag">server</span></h3><p>Lets shop and coin mods share one economy. Comes bundled with Elements: Economy.</p></div>
-      <div class="mod-card"><h3>Codex: Armor Stands <span class="tag">server</span></h3><p>Hold flint and right-click to open the editor: pose, move and rotate stands, show arms, change size, swap their gear, or pick one of 40 ready-made poses. Works on stands you placed.</p></div>
-    </div>
-  </section>
-
-  <section class="category" id="economy" style="--cat: var(--c-server)">
-    <div class="category-head"><span class="cat-dot"></span><h2>Economy &amp; NPCs</h2><span class="category-count">4 mods</span></div>
-    <p class="category-desc">The mods behind coins, shops, loot bags and the spawn NPCs.</p>
-    <div class="mod-grid">
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/aiycoin" target="_blank" rel="noopener">Aiycoin</a></h3><p>Adds the coins the server runs on, plus the coins that open the crates.</p></div>
-      <div class="mod-card"><h3>Spud's Shops</h3><p>Lets players set up their own shops to buy and sell items for coins.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/loot-bags-plus" target="_blank" rel="noopener">Loot Plus</a></h3><p>Mobs can drop loot bags you open for coins and items. Bosses always drop a Boss Loot Bag.</p></div>
-      <div class="mod-card"><h3>Easy NPC <span class="tag">3 parts</span></h3><p>Runs the spawn NPCs: shopkeepers, Clucky the coin exchanger, Rufus, Natsubashi and the rest. Comes as Easy NPC, its Bundle and its Config UI.</p></div>
-    </div>
-  </section>
-
-  <section class="category" id="mobs" style="--cat: var(--c-mobs)">
-    <div class="category-head"><span class="cat-dot"></span><h2>Mobs &amp; Animals</h2><span class="category-count">3 mods</span></div>
-    <p class="category-desc">New creatures, and old ones acting smarter.</p>
-    <div class="mod-grid">
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/ecologics" target="_blank" rel="noopener">Ecologics</a></h3><p>Adds new plants, blocks, and animals to vanilla biomes to make the world feel more alive and varied.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/re-animal" target="_blank" rel="noopener">Re:Animal</a></h3><p>Adds new animals with smarter, more lifelike behavior.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/friends-and-foes-forge" target="_blank" rel="noopener">Friends &amp; Foes</a></h3><p>Adds the mob-vote mobs that never made it into vanilla, like the Copper Golem, the Glare and the Moobloom.</p></div>
-    </div>
-  </section>
-
-  <section class="category" id="build" style="--cat: var(--c-build)">
-    <div class="category-head"><span class="cat-dot"></span><h2>Building &amp; Decoration</h2><span class="category-count">22 mods</span></div>
-    <p class="category-desc">Blocks, furniture, and chisel-able variants for making builds look intentional. The 12 Macaw's mods are one family, each covering a different block type.</p>
-    <div class="mod-grid">
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/all-the-heads" target="_blank" rel="noopener">All The Heads</a></h3><p>Adds a huge collection of decorative mob and player head blocks you can place and display.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/chipped" target="_blank" rel="noopener">Chipped</a></h3><p>Adds a large set of new decorative and furniture-style blocks to make your builds feel more detailed.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/handcrafted" target="_blank" rel="noopener">Handcrafted</a></h3><p>Adds over 250 furniture and decoration pieces, like chairs, tables, and shelves.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/macaws-bridges" target="_blank" rel="noopener">Macaw's Bridges</a></h3><p>Adds a variety of decorative bridges to build with.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/macaws-doors" target="_blank" rel="noopener">Macaw's Doors</a></h3><p>Adds lots of new decorative door styles, including wood-colored, garage, and shoji doors.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/macaws-furniture" target="_blank" rel="noopener">Macaw's Furniture</a></h3><p>Adds furniture like wardrobes, drawers, chairs, desks, couches, and tables.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/macaws-lights-and-lamps" target="_blank" rel="noopener">Macaw's Lights and Lamps</a></h3><p>Adds many new lamp and light styles to brighten up your builds.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/macaws-fences-and-walls" target="_blank" rel="noopener">Macaw's Fences and Walls</a></h3><p>Adds new decorative fence, wall, and gate styles.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/macaws-paths-and-pavings" target="_blank" rel="noopener">Macaw's Paths and Pavings</a></h3><p>Adds new path and paving block styles for decorating outdoor areas.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/macaws-stairs" target="_blank" rel="noopener">Macaw's Stairs and Balconies</a></h3><p>Adds new decorative stair and handrail/balcony styles.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/macaws-windows" target="_blank" rel="noopener">Macaw's Windows</a></h3><p>Adds many window styles plus mosaic glass, blinds, shutters, and curtains.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/macaws-paintings" target="_blank" rel="noopener">Macaw's Paintings</a></h3><p>Adds a bunch of new custom-drawn paintings to hang in your world.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/macaws-roofs" target="_blank" rel="noopener">Macaw's Roofs</a></h3><p>Adds proper roof-shaped blocks so you don't have to fake roofs out of stairs.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/macaws-trapdoors" target="_blank" rel="noopener">Macaw's Trapdoors</a></h3><p>Adds new trapdoor styles in every wood type plus some unique designs.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/macaws-betters" target="_blank" rel="noopener">Macaw's Betters</a></h3><p>Brings Macaw's decoration blocks into the Better Nether and Better End materials.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/rechiseled" target="_blank" rel="noopener">Rechiseled</a></h3><p>Lets you chisel blocks into many decorative variants with matching connected textures.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/rechiseled-chipped" target="_blank" rel="noopener">Rechiseled: Chipped</a></h3><p>Add-on that lets you chisel Chipped's blocks too, adding more decorative options.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/supplementaries" target="_blank" rel="noopener">Supplementaries</a></h3><p>Adds lots of small decorative and functional blocks like jars, signposts, lamps, faucets, and gadgets.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/dye-depot" target="_blank" rel="noopener">Dye Depot</a></h3><p>Adds 16 new dyes with their own blocks and reworks vanilla dye crafting to use them.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/every-compat" target="_blank" rel="noopener">Every Compat</a></h3><p>Makes Macaw's, Handcrafted and Supplementaries blocks in every modded wood, like Oh The Trees You'll Grow, Ecologics, Better End and Better Nether woods.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/amendments" target="_blank" rel="noopener">Amendments</a></h3><p>Supplementaries companion: better lanterns, wall skulls, hanging signs, and cauldrons that hold potions and dye.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/dye-the-world" target="_blank" rel="noopener">Dye The World</a></h3><p>Adds Dye Depot's 16 colors to blocks from other mods, like Supplementaries, Farmer's Delight, Create, Create Deco, Bits 'n' Bobs and Waystones.</p></div>
-    </div>
-  </section>
-
-  <section class="category" id="auto" style="--cat: var(--c-auto)">
-    <div class="category-head"><span class="cat-dot"></span><h2>Automation &amp; Machines</h2><span class="category-count">13 mods</span></div>
-    <p class="category-desc">Create and its integrations: mechanical contraptions and the mods that work on top of them.</p>
-    <div class="mod-grid">
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/create" target="_blank" rel="noopener">Create</a></h3><p>Adds mechanical gears, rotating contraptions, and automated machines to process items and move things around your base.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/create-contraption-terminals" target="_blank" rel="noopener">Create Contraption Terminals</a></h3><p>Lets storage-terminal screens keep working when mounted on moving Create contraptions.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/rechiseled-create" target="_blank" rel="noopener">Rechiseled: Create</a></h3><p>Add-on that adds decorative chiseled variants of Create's blocks.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/sophisticated-backpacks-create-integration" target="_blank" rel="noopener">Sophisticated Backpacks Create Integration</a></h3><p>Lets Sophisticated Backpacks work correctly when riding on Create contraptions.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/copycats" target="_blank" rel="noopener">Copycats</a></h3><p>Lets Create's contraption blocks take on any other block's look while keeping their function.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/create-deco" target="_blank" rel="noopener">Create Deco</a></h3><p>Adds new decorative blocks and furniture styled to match Create's look.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/create-design-n-decor" target="_blank" rel="noopener">Design n' Decor</a></h3><p>Adds more decorative blocks and furniture in Create's brass-and-cogs style.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/create-bits-n-bobs" target="_blank" rel="noopener">Bits 'n' Bobs</a></h3><p>Adds small decorative trinkets and detail blocks for Create-style builds.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/apothic-spawners" target="_blank" rel="noopener">Apothic Spawners</a></h3><p>Lets you mine mob spawners with Silk Touch and upgrade them for custom mob farms.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/create-connected" target="_blank" rel="noopener">Create: Connected</a></h3><p>Adds small extra Create blocks that fill gaps in kinetics and contraptions.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/create-encased" target="_blank" rel="noopener">Create Encased</a></h3><p>Lets you put any casing on shafts, cogwheels and pipes.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/interiors" target="_blank" rel="noopener">Create: Interiors</a></h3><p>Adds Create-style seats and furniture, including ones that work on contraptions.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/sophisticated-storage-create-integration" target="_blank" rel="noopener">Sophisticated Storage Create Integration</a></h3><p>Lets Sophisticated Storage chests and barrels work on moving Create contraptions.</p></div>
-    </div>
-  </section>
-
-  <section class="category" id="storage" style="--cat: var(--c-storage)">
-    <div class="category-head"><span class="cat-dot"></span><h2>Storage &amp; Organization</h2><span class="category-count">4 mods</span></div>
-    <p class="category-desc">Better ways to hold and find your stuff.</p>
-    <div class="mod-grid">
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/lootr" target="_blank" rel="noopener">Lootr</a></h3><p>Makes loot chests personal to each player, so everyone gets their own full loot instead of racing to loot a chest first.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/sophisticated-backpacks" target="_blank" rel="noopener">Sophisticated Backpacks</a></h3><p>Adds upgradeable backpacks you can customize with storage-boosting upgrades.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/toms-storage" target="_blank" rel="noopener">Tom's Storage</a></h3><p>Adds simple networked storage and a terminal so you can reach all your stored items from one spot.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/sophisticated-storage" target="_blank" rel="noopener">Sophisticated Storage</a></h3><p>Adds upgradeable chests, barrels and shulker boxes, plus Limited Barrels that hold far more of 1 to 4 items.</p></div>
-    </div>
-  </section>
-
-  <section class="category" id="food" style="--cat: var(--c-food)">
-    <div class="category-head"><span class="cat-dot"></span><h2>Food &amp; Cooking</h2><span class="category-count">8 mods</span></div>
-    <p class="category-desc">Farming, cooking, and butchering, mostly built around Farmer's Delight.</p>
-    <div class="mod-grid">
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/brewin-and-chewin" target="_blank" rel="noopener">Brewin' &amp; Chewin'</a></h3><p>Adds fermenting, brewing, and new drinks and foods as an expansion for Farmer's Delight.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/butchery" target="_blank" rel="noopener">Butchery</a></h3><p>Kill animals with a knife to get a carcass, then hang and butcher it for meat and materials. Carcasses are heavy and slow you down while you carry them.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/farmers-delight" target="_blank" rel="noopener">Farmer's Delight</a></h3><p>Expands farming and cooking with new crops, kitchen tools, and dozens of new food recipes.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/veggies-delight" target="_blank" rel="noopener">Veggies Delight</a></h3><p>Farmer's Delight add-on that adds new vegetables, dishes, and farm-related structures.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/datapack/farmers-cutting-betterend" target="_blank" rel="noopener">Farmer's Cutting: Better End</a> <span class="tag">server</span></h3><p>Adds Farmer's Delight cutting board recipes for Better End's food and crops. Runs on the server only.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/datapack/farmers-cutting-betternether" target="_blank" rel="noopener">Farmer's Cutting: Better Nether</a> <span class="tag">server</span></h3><p>Adds Farmer's Delight cutting board recipes for Better Nether's food and crops. Runs on the server only.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/drunkard" target="_blank" rel="noopener">Drunkard</a></h3><p>Adds brewing and alcoholic drinks made from new crops. Have too many and you get drunk.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/aquaculture" target="_blank" rel="noopener">Aquaculture 2</a></h3><p>Adds new fish, fishing rods, hooks and bait. Fillet your catch for food.</p></div>
-    </div>
-  </section>
-
-  <section class="category" id="fun" style="--cat: var(--c-fun)">
-    <div class="category-head"><span class="cat-dot"></span><h2>Cosmetics &amp; Fun</h2><span class="category-count">4 mods</span></div>
-    <p class="category-desc">Stuff that doesn't change gameplay balance much. It just makes the world more fun to be in.</p>
-    <div class="mod-grid">
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/piggyback" target="_blank" rel="noopener">Piggyback</a></h3><p>Lets you carry another player piggyback-style.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/epic-samurais" target="_blank" rel="noopener">Samurai Dynasty</a></h3><p>Adds Japanese-folklore armor, weapons, mobs and woods like Spirit Blossom and Twistthorn.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/useful-hats" target="_blank" rel="noopener">Useful Hats</a></h3><p>Adds wearable hats that grant small special abilities.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/plushie" target="_blank" rel="noopener">Plushie Mod</a></h3><p>Adds cute plushie decorations you can place around your world.</p></div>
-    </div>
-  </section>
-
-  <section class="category" id="qol" style="--cat: var(--c-qol)">
-    <div class="category-head"><span class="cat-dot"></span><h2>Quality of Life &amp; Info</h2><span class="category-count">10 mods</span></div>
-    <p class="category-desc">Mods that show you information or smooth out annoying vanilla friction.</p>
-    <div class="mod-grid">
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/gravestone-mod" target="_blank" rel="noopener">Gravestone Mod</a></h3><p>When you die, your items go into a gravestone at that spot so you can get them back.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/jade" target="_blank" rel="noopener">Jade</a></h3><p>Shows an info tooltip about whatever block, item, or mob you're looking at.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/jade-addons-forge" target="_blank" rel="noopener">Jade Addons</a></h3><p>Adds extra Jade tooltip info for many other mods, like container contents at a glance.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/jei" target="_blank" rel="noopener">JEI</a></h3><p>Lets you search all items and see how to craft them right from your inventory screen.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/xaeros-minimap" target="_blank" rel="noopener">Xaero's Minimap</a></h3><p>Adds an on-screen map of nearby terrain, players, and mobs, plus custom waypoints.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/xaeros-world-map" target="_blank" rel="noopener">Xaero's World Map</a></h3><p>Adds a full-screen map of everywhere you've explored, working alongside the minimap.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/appleskin" target="_blank" rel="noopener">AppleSkin</a> <span class="tag">client</span></h3><p>Shows how much hunger and saturation food restores in its tooltip and on your hunger bar.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/polymorph" target="_blank" rel="noopener">Polymorph</a></h3><p>When two mods share a crafting recipe, lets you pick which result you get.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/carry-on" target="_blank" rel="noopener">Carry On</a></h3><p>Sneak with an empty hand to pick up chests and other blocks with their contents, or to carry mobs.</p></div>
-      <div class="mod-card"><h3><a href="https://www.curseforge.com/minecraft/mc-mods/comforts" target="_blank" rel="noopener">Comforts</a></h3><p>Adds sleeping bags and hammocks: sleep through the night without changing your spawn, or nap through the day.</p></div>
-    </div>
-  </section>
-
-  <section class="category" id="world" style="--cat: var(--c-world)">
-    <div class="category-head"><span class="cat-dot"></span><h2>World &amp; Exploration</h2><span class="category-count">7 mods</span></div>
-    <p class="category-desc">New places to find, dimensions to overhaul, and ways to get around.</p>
-    <div class="mod-grid">
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/betterend" target="_blank" rel="noopener">Better End</a></h3><p>Turns the End into a full dimension with new biomes, plants, materials and structures.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/betternether" target="_blank" rel="noopener">Better Nether</a></h3><p>Adds new Nether biomes, plants, mobs and building materials.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/crystal-tools" target="_blank" rel="noopener">Crystal Tools</a></h3><p>Crystal tools and armor that level up as you use them. Spend points on upgrades like vein mining and tree chopping.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/epic-structures-villages" target="_blank" rel="noopener">Epic Structures: Villages</a></h3><p>Adds bigger, more detailed villages to find while exploring.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/waystones" target="_blank" rel="noopener">Waystones</a></h3><p>Waystones you find or place let you teleport back to them. The WarpGates at spawn use its warp plates.</p></div>
-      <div class="mod-card"><h3><a href="https://modrinth.com/mod/yungs-cave-biomes" target="_blank" rel="noopener">YUNG's Cave Biomes</a></h3><p>Adds new underground biomes to discover while caving.</p></div>
-      <div class="mod-card"><h3>Oh The Trees You'll Grow</h3><p>Grows saplings into bigger, more varied trees. Samurai Dynasty's trees need it.</p></div>
-    </div>
-  </section>
-
-  <section class="category collapsible" id="perf" style="--cat: var(--c-perf)">
-    <div class="category-head">
-      <span class="chevron">&#9656;</span><span class="cat-dot"></span><h2>Performance</h2><span class="category-count">3 mods</span><span class="collapse-hint">tap to expand</span>
-    </div>
-    <p class="category-desc">You won't see these do anything. They make the game run smoother.</p>
-    <div class="mod-grid simple-list" hidden>
-      <div class="mod-card"><h3>Ferrite Core</h3></div>
-      <div class="mod-card"><h3>Krypton</h3></div>
-      <div class="mod-card"><h3>ModernFix</h3></div>
-    </div>
-  </section>
-
-  <section class="category collapsible" id="lib" style="--cat: var(--c-lib)">
-    <div class="category-head">
-      <span class="chevron">&#9656;</span><span class="cat-dot"></span><h2>Library / Dependency</h2><span class="category-count">26 mods</span><span class="collapse-hint">tap to expand</span>
-    </div>
-    <p class="category-desc">You won't use these directly. Other mods in the pack need them to run, so don't remove them.</p>
-    <div class="mod-grid simple-list" hidden>
-      <div class="mod-card"><h3>AddonsLib</h3></div>
-      <div class="mod-card"><h3>Architectury API</h3></div>
-      <div class="mod-card"><h3>Athena</h3></div>
-      <div class="mod-card"><h3>Azimuth</h3></div>
-      <div class="mod-card"><h3>AzureLib</h3></div>
-      <div class="mod-card"><h3>BCLib</h3></div>
-      <div class="mod-card"><h3>Balm</h3></div>
-      <div class="mod-card"><h3>Cristel Lib</h3></div>
-      <div class="mod-card"><h3>Curios API</h3></div>
-      <div class="mod-card"><h3>Faewulf's Lib</h3></div>
-      <div class="mod-card"><h3>Fusion</h3></div>
-      <div class="mod-card"><h3>GeckoLib</h3></div>
-      <div class="mod-card"><h3>Kotlin for Forge</h3></div>
-      <div class="mod-card"><h3>Moonlight Lib</h3></div>
-      <div class="mod-card"><h3>Placebo</h3></div>
-      <div class="mod-card"><h3>PuzzlesLib</h3></div>
-      <div class="mod-card"><h3>Resourceful Lib</h3></div>
-      <div class="mod-card"><h3>ShatterLib | OctoLib</h3></div>
-      <div class="mod-card"><h3>Sophisticated Core</h3></div>
-      <div class="mod-card"><h3>Struts</h3></div>
-      <div class="mod-card"><h3>SuperMartijn642's Core Lib</h3></div>
-      <div class="mod-card"><h3>SuperMartijn642's Config Lib</h3></div>
-      <div class="mod-card"><h3>TerraBlender</h3></div>
-      <div class="mod-card"><h3>WorldWeaver</h3></div>
-      <div class="mod-card"><h3>WunderLib</h3></div>
-      <div class="mod-card"><h3>YUNG's API</h3></div>
-    </div>
-  </section>
-
-  <footer>Tenko MC &middot; TMC Modpack 1.2 &middot; NeoForge 21.1.255 &middot; Minecraft 1.21.1 &middot; See the <a href="install.html">Install Guide</a> for setup steps, and the <a href="guide.html">Server Wiki</a> for rules and commands.</footer>
+<h2 id="systems">The systems<a class="anchor" href="#systems" aria-label="Link to this section">#</a></h2>
+<div class="cards">
+<a class="card" href="coins.html"><h3>Coins &amp; Shops</h3><p>Physical coins, conversion rates, NPC shops, player shops and the auction house.</p></a>
+<a class="card" href="crates.html"><h3>Crates &amp; Keys</h3><p>Five crates at spawn, the coins that open them, and what's inside.</p></a>
+<a class="card" href="rewards.html"><h3>Playtime &amp; Voting</h3><p>Rufus's 20 playtime rewards, the five vote sites and what votes earn.</p></a>
+<a class="card" href="ranks.html"><h3>Ranks &amp; Limits</h3><p>Every rank, how to reach it, and the homes and claim chunks it gives.</p></a>
+<a class="card" href="claims.html"><h3>Claims</h3><p>Claim Deeds, trusting players, ranks, flags and sub-areas.</p></a>
+<a class="card" href="worlds.html"><h3>Travel &amp; Worlds</h3><p>Waystones, homes, resource worlds, world borders and boss fights.</p></a>
+<a class="card" href="npcs.html"><h3>NPCs</h3><p>Who's who at spawn and what each one does.</p></a>
+<a class="card" href="commands.html"><h3>Commands</h3><p>Every player command, grouped by the mod it comes from.</p></a>
 </div>
 
-<script>
-  const search = document.getElementById('search');
-  const sections = Array.from(document.querySelectorAll('.category'));
-  const features = document.getElementById('server');
-  const emptyMsg = document.getElementById('empty-msg');
+<h2 id="how-it-fits">How it fits together<a class="anchor" href="#how-it-fits" aria-label="Link to this section">#</a></h2>
+<p>Most of the server runs on coins. You earn them from Rufus for time played, from other players through trades, shops and the auction house, and from loot bags dropped by mobs and bosses. You spend them in the spawn shops or on other players' goods.</p>
+<p>Crates are separate. They don't take Bronze, Silver or Gold. Each one opens with its own coin, found in loot chests, dropped by bosses, won from a lower crate, or earned by voting.</p>
+<p>Ranks come from votes only. They can't be bought. Each rank adds one home and 100 claim chunks, and changes your name color in chat and the tab list.</p>
+<p>Titles are cosmetic. Title Scrolls drop from chests and bosses, and <code>/title</code> picks the one shown next to your name.</p>
 
-  const openState = {};
-  document.querySelectorAll('.collapsible').forEach(section => {
-    openState[section.id] = false;
-    const head = section.querySelector('.category-head');
-    const grid = section.querySelector('.mod-grid');
-    const hint = head.querySelector('.collapse-hint');
-    head.setAttribute('role', 'button');
-    head.setAttribute('tabindex', '0');
-    head.setAttribute('aria-expanded', 'false');
-    function toggle() {
-      const open = !openState[section.id];
-      openState[section.id] = open;
-      grid.hidden = !open;
-      head.setAttribute('aria-expanded', String(open));
-      if (hint) hint.textContent = open ? 'tap to collapse' : 'tap to expand';
-    }
-    head.addEventListener('click', toggle);
-    head.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-    });
-  });
+<h2 id="good-to-know">Good to know<a class="anchor" href="#good-to-know" aria-label="Link to this section">#</a></h2>
+<ul>
+<li><b>Death:</b> your items go into a gravestone where you died. Go back and break it to get everything back. Only you and staff can break it.</li>
+<li><b>AFK:</b> nobody gets kicked for being AFK. <code>/afk</code> marks you away, and you're marked automatically after a while. AFK time doesn't count toward playtime rewards.</li>
+<li><b>Nightly restart:</b> the server restarts every night at 23:30 CST, with warnings from 30 minutes out.</li>
+<li><b>Loot chests</b> are personal. Everyone who opens a dungeon or structure chest gets their own loot, so there's no rush to get there first.</li>
+<li><b>Elytra</b> can't be used at spawn.</li>
+<li><b>Phantoms</b> can be turned off for yourself with <code>/phantoms off</code>.</li>
+<li><b>Discord:</b> <a href="https://discord.gg/GGQyUzt2Rq" target="_blank" rel="noopener">discord.gg/GGQyUzt2Rq</a>. Chat is bridged both ways, and <code>/link</code> connects your Discord account so your rank role follows you.</li>
+</ul>
 
-  search.addEventListener('input', () => {
-    const q = search.value.trim().toLowerCase();
-    let anyVisible = false;
-    features.hidden = !!q;
-    sections.forEach(section => {
-      const catName = section.querySelector('h2').textContent.toLowerCase();
-      const isCollapsible = section.classList.contains('collapsible');
-      let sectionHasMatch = false;
-      section.querySelectorAll('.mod-card').forEach(card => {
-        const text = card.textContent.toLowerCase();
-        const match = !q || text.includes(q) || catName.includes(q);
-        card.hidden = !match;
-        if (match) sectionHasMatch = true;
-      });
-      section.hidden = !sectionHasMatch;
-      if (sectionHasMatch) anyVisible = true;
-      if (isCollapsible) {
-        const grid = section.querySelector('.mod-grid');
-        const head = section.querySelector('.category-head');
-        const hint = head.querySelector('.collapse-hint');
-        if (q) {
-          grid.hidden = !sectionHasMatch;
-        } else {
-          grid.hidden = !openState[section.id];
-          head.setAttribute('aria-expanded', String(openState[section.id]));
-          if (hint) hint.textContent = openState[section.id] ? 'tap to collapse' : 'tap to expand';
-        }
-      }
-    });
-    emptyMsg.hidden = anyVisible;
-  });
-</script>
-
+  <nav class="pager" aria-label="Pages"><a class="next" href="rules.html"><span>Next</span>Server Rules</a></nav>
+  <footer>Tenko MC · TMC Modpack 1.2 · NeoForge 21.1.255 · Minecraft 1.21.1 · <a href="mods.html">Mod Wiki</a> · <a href="install.html">Install Guide</a></footer>
+</article>
+</main>
+</div>
+<script src="wiki.js"></script>
 </body>
 </html>
