@@ -214,6 +214,45 @@ footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border
   </section>
 
   <section>
+    <h2 id="memory-ram-settings" style="margin-bottom:12px;">Memory (RAM) settings</h2>
+    <p class="section-note">Recommended: <b>8 GB (8192 MB)</b>. Restart the launcher after changing it.</p>
+    <div class="launchers">
+      <div class="launcher-card cf">
+        <div class="launcher-name"><span class="dot"></span>CurseForge App</div>
+        <ol>
+          <li>Click the <b>Settings</b> gear in the bottom left</li>
+          <li>Open <b>Minecraft</b>, then <b>Java Settings</b></li>
+          <li>Set <b>Allocated Memory</b> to <b>8192 MB</b></li>
+          <li>For the Tenko profile only: right-click the profile, choose <b>Profile Options</b>, turn off <b>Use System Memory Settings</b> and set 8192 MB</li>
+        </ol>
+      </div>
+      <div class="launcher-card mr">
+        <div class="launcher-name"><span class="dot"></span>Modrinth App</div>
+        <ol>
+          <li>Open the Tenko instance</li>
+          <li>Open the instance settings, then <b>Java and memory</b></li>
+          <li>Set <b>Memory allocated</b> to <b>8192 MB</b></li>
+        </ol>
+      </div>
+      <div class="launcher-card pr">
+        <div class="launcher-name"><span class="dot"></span>Prism Launcher / MultiMC</div>
+        <ol>
+          <li>Right-click the Tenko instance and choose <b>Edit</b></li>
+          <li>Go to <b>Settings</b>, then <b>Java</b>, and tick <b>Memory</b></li>
+          <li>Set <b>Maximum memory allocation</b> to <b>8192 MiB</b></li>
+        </ol>
+      </div>
+      <div class="launcher-card at">
+        <div class="launcher-name"><span class="dot"></span>ATLauncher</div>
+        <ol>
+          <li>Go to <b>Instances</b> and click <b>Settings</b> on the Tenko instance</li>
+          <li>Set <b>Maximum Memory/RAM</b> to <b>8192 MB</b></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <h2 style="margin-bottom:12px;">Updating to a new version</h2>
     <div class="plain-card">
       <p style="margin:0;">When a new modpack file is posted on Discord, download it and import it the same way. Then delete the old instance so you don't launch the wrong one. To keep your settings and minimap waypoints, copy <code>options.txt</code> and your Xaero waypoints over first.</p>
@@ -227,7 +266,46 @@ footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border
       <div class="tshoot-item"><div class="q">"Missing mod" or "incompatible mod" when joining</div><div class="a">You're on an older modpack version. Download the latest file from Discord and import it again.</div></div>
       <div class="tshoot-item"><div class="q">The import fails or does nothing</div><div class="a">Check you picked the right file: <code>TMC Modpack 1.2CF.zip</code> for the CurseForge App, <code>TMC Modpack 1.2.mrpack</code> for every other launcher. Don't unzip it first.</div></div>
       <div class="tshoot-item"><div class="q">My launcher offers to update mods</div><div class="a">Dismiss it. Everything in the pack is locked to the server's versions.</div></div>
+      <div class="tshoot-item"><div class="q">The game freezes on "Loading Terrain"</div><div class="a">Check your <a href="#memory-ram-settings">memory setting</a> first. If it still freezes, send staff your <a href="#log-file">game log</a> right after the freeze, before you open the game again. Opening the game again overwrites the log.</div></div>
       <div class="tshoot-item"><div class="q">Still stuck?</div><div class="a">Ask on the <a href="https://discord.gg/GGQyUzt2Rq" target="_blank" rel="noopener">Tenko Discord</a> with a screenshot of the error.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="log-file" style="margin-bottom:12px;">Finding your log file</h2>
+    <p class="section-note">The file is <code>latest.log</code>. Send the file itself to staff on the <a href="https://discord.gg/GGQyUzt2Rq" target="_blank" rel="noopener">Tenko Discord</a> (in a ticket or DM). Please don't copy and paste its contents.</p>
+    <div class="launchers">
+      <div class="launcher-card cf">
+        <div class="launcher-name"><span class="dot"></span>CurseForge App</div>
+        <ol>
+          <li>Right-click the Tenko profile and choose <b>Open Folder</b></li>
+          <li>Open the <b>logs</b> folder</li>
+          <li>The file is <code>latest.log</code></li>
+        </ol>
+      </div>
+      <div class="launcher-card mr">
+        <div class="launcher-name"><span class="dot"></span>Modrinth App</div>
+        <ol>
+          <li>Open the Tenko instance</li>
+          <li>Click the <b>&ctdot;</b> menu and choose <b>Open folder</b></li>
+          <li>Open the <b>logs</b> folder. The file is <code>latest.log</code></li>
+        </ol>
+      </div>
+      <div class="launcher-card pr">
+        <div class="launcher-name"><span class="dot"></span>Prism Launcher / MultiMC</div>
+        <ol>
+          <li>Right-click the Tenko instance and choose <b>Folder</b> (MultiMC: <b>Instance Folder</b>)</li>
+          <li>Open the <b>.minecraft</b> folder (on some setups it's called <b>minecraft</b>)</li>
+          <li>Open the <b>logs</b> folder. The file is <code>latest.log</code></li>
+        </ol>
+      </div>
+      <div class="launcher-card at">
+        <div class="launcher-name"><span class="dot"></span>ATLauncher</div>
+        <ol>
+          <li>Go to <b>Instances</b> and click <b>Open Folder</b> on the Tenko instance</li>
+          <li>Open the <b>logs</b> folder. The file is <code>latest.log</code></li>
+        </ol>
+      </div>
     </div>
   </section>
 
